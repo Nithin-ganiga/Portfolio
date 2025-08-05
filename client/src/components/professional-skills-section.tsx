@@ -30,7 +30,7 @@ export default function ProfessionalSkillsSection() {
         { 
           name: "Python", 
           level: 4, 
-          description: "Developed data analysis scripts, machine learning models, and automation tools with pandas and scikit-learn"
+          description: "Developed machine learning models, and automation tools with pandas and scikit-learn"
         },
         { 
           name: "JavaScript", 
@@ -40,7 +40,7 @@ export default function ProfessionalSkillsSection() {
         { 
           name: "C", 
           level: 3, 
-          description: "Implemented system-level programming, memory management, and data structures for performance-critical applications"
+          description: "first language learned, implemented data structures and algorithms, and developed system-level applications"
         }
       ]
     },
@@ -123,7 +123,7 @@ export default function ProfessionalSkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-slate-900" ref={ref}>
+    <section id="skills" className="py-20 relative" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           className="text-center mb-16"

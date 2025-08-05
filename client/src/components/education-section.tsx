@@ -32,7 +32,7 @@ export default function EducationSection() {
 
   return (
     <section id="education" className="py-20 px-4 relative">
-      <div className="max-w-6xl mx-auto" ref={sectionRef}>
+      <div className="max-w-6xl mx-auto" ref={sectionRef as React.RefObject<HTMLDivElement>}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
