@@ -2,7 +2,7 @@
 
 A modern, animated personal portfolio showcasing my software development journey and technical skills. Built with React, TypeScript, and Express.js featuring smooth animations and interactive elements.
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Node.js](https://img.shields.io/badge/Node.js-20-green)
+![Portfolio Preview]((https://www.nithinganiga.dev/)) ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Node.js](https://img.shields.io/badge/Node.js-20-green)
 
 ## � Quick Start
 
