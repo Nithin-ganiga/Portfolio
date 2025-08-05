@@ -112,8 +112,8 @@ export default function ProfessionalSkillsSection() {
             key={dot}
             className={`w-2.5 h-2.5 rounded-full transition-colors duration-200 ${
               dot <= level 
-                ? 'bg-slate-700 dark:bg-slate-300' 
-                : 'bg-slate-300 dark:bg-slate-600'
+                ? 'bg-slate-300' 
+                : 'bg-slate-600'
             }`}
             aria-hidden="true"
           />
@@ -123,7 +123,7 @@ export default function ProfessionalSkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-900/50" ref={ref}>
+    <section id="skills" className="py-20 bg-slate-900" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -131,25 +131,25 @@ export default function ProfessionalSkillsSection() {
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Skills & Technologies
           </h2>
-          <div className="w-24 h-1 bg-slate-700 dark:bg-slate-300 mx-auto mb-6" />
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-slate-300 mx-auto mb-6" />
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             A comprehensive overview of my technical expertise and proficiency levels
           </p>
         </motion.div>
 
         {/* Proficiency Legend */}
         <motion.div
-          className="bg-white dark:bg-slate-800 rounded-lg p-6 mb-12 shadow-sm border border-slate-200 dark:border-slate-700"
+          className="bg-slate-800 rounded-lg p-6 mb-12 shadow-sm border border-slate-700"
           initial={{ opacity: 0, y: 30 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="flex items-center gap-2 mb-4">
-            <Info className="w-5 h-5 text-slate-600 dark:text-slate-400" />
-            <h3 className="text-lg font-semibold text-slate-800 dark:text-white">Proficiency Scale</h3>
+            <Info className="w-5 h-5 text-slate-400" />
+            <h3 className="text-lg font-semibold text-white">Proficiency Scale</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {proficiencyLevels.reverse().map((level) => (
@@ -160,17 +160,17 @@ export default function ProfessionalSkillsSection() {
                       key={dot}
                       className={`w-2 h-2 rounded-full ${
                         dot <= level.level 
-                          ? 'bg-slate-700 dark:bg-slate-300' 
-                          : 'bg-slate-300 dark:bg-slate-600'
+                          ? 'bg-slate-300' 
+                          : 'bg-slate-600'
                       }`}
                     />
                   ))}
                 </div>
                 <div>
-                  <div className="font-medium text-slate-800 dark:text-white text-sm">
+                  <div className="font-medium text-white text-sm">
                     {level.label}
                   </div>
-                  <div className="text-xs text-slate-600 dark:text-slate-400 hidden md:block">
+                  <div className="text-xs text-slate-400 hidden md:block">
                     {level.description}
                   </div>
                 </div>
@@ -184,16 +184,16 @@ export default function ProfessionalSkillsSection() {
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              className="bg-white dark:bg-slate-800 rounded-lg p-8 shadow-sm border border-slate-200 dark:border-slate-700"
+              className="bg-slate-800 rounded-lg p-8 shadow-sm border border-slate-700"
               initial={{ opacity: 0, y: 50 }}
               animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 + categoryIndex * 0.2 }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-lg">
-                  <category.icon className={`w-6 h-6 ${category.color}`} />
+                <div className="p-2 bg-slate-700 rounded-lg">
+                  <category.icon className="w-6 h-6 text-slate-300" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                <h3 className="text-xl font-bold text-white">
                   {category.title}
                 </h3>
               </div>
@@ -213,18 +213,18 @@ export default function ProfessionalSkillsSection() {
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-3">
-                          <h4 className="font-semibold text-slate-800 dark:text-white">
+                          <h4 className="font-semibold text-white">
                             {skill.name}
                           </h4>
                           {renderProficiencyDots(skill.level)}
                         </div>
-                        <span className="text-sm font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">
+                        <span className="text-sm font-medium text-slate-400 bg-slate-700 px-2 py-1 rounded">
                           {proficiency.label}
                         </span>
                       </div>
                       
                       {/* Skill Description - Always visible for accessibility, styled for elegance */}
-                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed pl-0 transition-all duration-200">
+                      <p className="text-sm text-slate-400 leading-relaxed pl-0 transition-all duration-200">
                         {skill.description}
                       </p>
                     </motion.div>
