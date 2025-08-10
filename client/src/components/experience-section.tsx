@@ -1,26 +1,22 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Award } from "lucide-react";
+import { Briefcase, Calendar, MapPin, Award } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import TimelineItem from "./timeline-item";
 
 export default function ExperienceSection() {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
 
-  const timelineItems = [
-    {
-      type: "experience",
-      title: "Summer Intern",
-      organization: "C-ISFCR, PES University",
-      period: "June 2024 - July 2024",
-      details: [
-        "Researched dynamic graph neural networks for anti-money laundering",
-        "Developed GCN-GRU and GCN-LSTM models with adaptive class weighting",
-        "Improved illicit transaction classification using Elliptic dataset"
-      ],
-      color: "purple",
-      side: "right" as const
-    }
-  ];
+  const experience = {
+    title: "Summer Intern",
+    organization: "C-ISFCR, PES University",
+    period: "June 2024 - July 2024",
+    location: "Bangalore, India",
+    achievements: [
+      "Researched dynamic graph neural networks for anti-money laundering",
+      "Developed GCN-GRU and GCN-LSTM models with adaptive class weighting", 
+      "Improved illicit transaction classification using Elliptic dataset"
+    ],
+    technologies: ["Python", "PyTorch", "Graph Neural Networks", "Machine Learning"]
+  };
 
   const certifications = [
     {
@@ -29,17 +25,17 @@ export default function ExperienceSection() {
       icon: "🏆"
     },
     {
-      title: "GenAI for Front-End Developers",
+      title: "GenAI for Front-End Developers", 
       provider: "Coursera",
       icon: "🧠"
     }
   ];
 
   return (
-    <section id="experience" className="py-20 bg-slate-800/50" ref={ref}>
+    <section id="experience" className="py-16 relative" ref={ref}>
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -50,52 +46,95 @@ export default function ExperienceSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto" />
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"
-            initial={{ scaleY: 0 }}
-            animate={isIntersecting ? { scaleY: 1 } : {}}
-            transition={{ duration: 1, delay: 0.5 }}
-            style={{ transformOrigin: 'top' }}
-          />
+        {/* Experience Card */}
+        <motion.div
+          className="max-w-4xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="bg-blue-500/20 p-3 rounded-lg">
+                <Briefcase className="w-6 h-6 text-blue-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-white mb-2">{experience.title}</h3>
+                <p className="text-xl text-blue-400 font-semibold mb-3">{experience.organization}</p>
+                <div className="flex flex-wrap items-center gap-4 text-slate-400">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">{experience.period}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">{experience.location}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          {/* Timeline Items */}
-          <div className="space-y-12">
-            {timelineItems.map((item, index) => (
-              <TimelineItem
-                key={index}
-                item={item}
-                index={index}
-                isIntersecting={isIntersecting}
-              />
-            ))}
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-white mb-4">Key Achievements</h4>
+              <ul className="space-y-3">
+                {experience.achievements.map((achievement, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start gap-3 text-slate-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  >
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                    <span className="leading-relaxed">{achievement}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-3">Technologies Used</h4>
+              <div className="flex flex-wrap gap-2">
+                {experience.technologies.map((tech, index) => (
+                  <motion.span
+                    key={tech}
+                    className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Certifications */}
         <motion.div
-          className="mt-20"
           initial={{ opacity: 0, y: 50 }}
           animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h3 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Certifications
-          </h3>
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <Award className="w-6 h-6 text-blue-400" />
+            <h3 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Certifications
+            </h3>
+          </div>
           <div className="flex flex-wrap justify-center gap-6">
             {certifications.map((cert, index) => (
               <motion.div
                 key={cert.title}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg text-center transform hover:scale-105 transition-all duration-300"
+                className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-6 rounded-xl text-center hover:border-blue-500/50 hover:scale-105 transition-all duration-300 max-w-xs"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
               >
-                <div className="text-2xl mb-2">{cert.icon}</div>
-                <p className="font-semibold text-sm">{cert.title}</p>
-                <p className="text-xs text-gray-400">{cert.provider}</p>
+                <div className="text-3xl mb-3">{cert.icon}</div>
+                <p className="font-semibold text-white mb-2">{cert.title}</p>
+                <p className="text-sm text-blue-400">{cert.provider}</p>
               </motion.div>
             ))}
           </div>
