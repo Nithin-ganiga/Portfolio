@@ -4,6 +4,8 @@ A modern, animated personal portfolio showcasing my software development journey
 
 ![Portfolio Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Node.js](https://img.shields.io/badge/Node.js-20-green)
 
+Demo : [https://www.nithinganiga.dev]
+
 ## � Quick Start
 
 ### Prerequisites
