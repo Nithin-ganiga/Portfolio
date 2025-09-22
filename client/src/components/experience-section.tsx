@@ -28,6 +28,11 @@ export default function ExperienceSection() {
       title: "GenAI for Front-End Developers", 
       provider: "Coursera",
       icon: "🧠"
+    },
+    {
+      title:"Bharatiya Antarrashtriya Hackthon participant",
+      provider: "hackwithinfy",
+      icon: "🛰️"
     }
   ];
 
