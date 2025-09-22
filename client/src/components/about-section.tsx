@@ -29,7 +29,7 @@ export default function AboutSection() {
             <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-800">
                 <img 
-                  src="/my_image_1754226920253.jpg" 
+                  src="/my_image_1754226920253.jpeg" 
                   alt="Nithin - Software Developer" 
                   className="w-full h-full object-cover rounded-full"
                 />
